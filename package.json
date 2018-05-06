@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jcoreio/material-ui-with-styles.git"
+    "url": "https://github.com/jcoreio/material-ui-render-props-styles.git"
   },
   "keywords": [
     "material-ui",
@@ -54,9 +54,9 @@
   "author": "Andy Edwards",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jcoreio/material-ui-with-styles/issues"
+    "url": "https://github.com/jcoreio/material-ui-render-props-styles/issues"
   },
-  "homepage": "https://github.com/jcoreio/material-ui-with-styles#readme",
+  "homepage": "https://github.com/jcoreio/material-ui-render-props-styles#readme",
   "devDependencies": {
     "@commitlint/cli": "^6.0.2",
     "@commitlint/config-conventional": "^6.0.2",
