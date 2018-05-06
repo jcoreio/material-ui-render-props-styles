@@ -22,22 +22,21 @@ const styles = theme => {
   },
 }
 
+// accepts same options as withStyles
+const Styled = createStyled(styles)
+
 const PrimaryDiv = ({children}) => (
-  <WithStyles styles={styles}>
+  <Styled>
     {({classes}) => (
       <div className={classes.root}>
         {children}
       </div>
     )}
-  </WithStyles>
+  </Styled>
 )
 ```
 
 ## Props
-
-### `styles: Object | (theme: any) => Object`
-
-The JSS styles passed to `withStyles(styles, [options])`
 
 ### `children: (options: {classes: Object, theme: any}) => React.Node`
 
@@ -49,18 +48,3 @@ return the content to display.
 
 Override class names for the inner component
 
-### `withTheme?: boolean`
-
-Whether to pass the theme to `children`.
-
-### `name?: string`
-
-The name of the style sheet. Useful for debugging. If the value isn't provided, it will try to fallback to the name of the component.
-
-### `flip?: boolean`
-
-When set to false, this sheet will opt-out the rtl transformation. When set to true, the styles are inversed. When set to null, it follows theme.direction
-
-### `options?: Object`
-
-Additional options for [`jss.createStyleSheet([styles], [options])`](http://cssinjs.org/js-api/#create-style-sheet)
