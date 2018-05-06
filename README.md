@@ -45,6 +45,10 @@ The render function.  It's passed the `classes` injected by JSS, and
 the `theme` injected by Material-UI (if `withTheme` is true), and should
 return the content to display.
 
+### `classes?: {[className: string]: string}`
+
+Override class names for the inner component
+
 ### `withTheme?: boolean`
 
 Whether to pass the theme to `children`.

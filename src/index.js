@@ -9,6 +9,7 @@ export type Classes<Styles: Object | (theme: any) => Object> = $Call<ExtractClas
 
 export type Props<Theme, Styles: Object> = {
   styles: ((theme: Theme) => Styles) | Styles,
+  classes?: {[name: $Keys<Styles>]: string},
   withTheme?: boolean,
   name?: string,
   flip?: boolean,
@@ -38,7 +39,7 @@ export default class WithStyles<Theme, Styles: Object> extends React.PureCompone
 
   render(): React.Node {
     const Wrapper = this._selectWrapper(this.props)
-    return <Wrapper />
+    return <Wrapper classes={this.props.classes} />
   }
 }
 
