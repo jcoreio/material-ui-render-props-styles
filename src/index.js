@@ -8,7 +8,7 @@ export type ExtractClasses = <T: Object>(styles: ((theme: any) => T) | T) => {[n
 export type Classes<Styles: Object | (theme: any) => Object> = $Call<ExtractClasses, Styles>
 
 export type Props<Theme, Styles: Object> = {
-  classes?: ?Classes<Styles>,
+  classes?: ?$Shape<Classes<Styles>>,
   children: (props: {classes: Classes<Styles>, theme: Theme}) => React.Node,
 }
 
