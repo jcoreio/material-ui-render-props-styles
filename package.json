@@ -45,9 +45,11 @@
     "url": "https://github.com/jcoreio/material-ui-with-styles.git"
   },
   "keywords": [
-    "es2015",
-    "react",
-    "skeleton"
+    "material-ui",
+    "theming",
+    "css-in-js",
+    "jss",
+    "render-props"
   ],
   "author": "Andy Edwards",
   "license": "MIT",
