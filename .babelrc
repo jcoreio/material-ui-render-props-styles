@@ -4,9 +4,6 @@
     "flow",
     "react"
   ],
-  "plugins": [
-    "flow-react-proptypes"
-  ],
   "env": {
     "test": {
       "presets": [
