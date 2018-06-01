@@ -1,7 +1,8 @@
 [ignore]
 <PROJECT_ROOT>/lib/.*
+<PROJECT_ROOT>/es/.*
 <PROJECT_ROOT>/node_modules/fbjs/.*
-<PROJECT_ROOT>/node_modules/.*/tests?/.*\.json
+<PROJECT_ROOT>/node_modules/.*/test/.*
 
 [include]
 ./src
@@ -13,4 +14,3 @@
 module.system=node
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable
-

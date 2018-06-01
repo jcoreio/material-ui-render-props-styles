@@ -14,7 +14,7 @@ npm install --save material-ui-render-props-styles
 ```
 
 ```js
-import WithStyles from 'material-ui-render-props-styles'
+import createStyled from 'material-ui-render-props-styles'
 
 const styles = theme => {
   root: {
@@ -47,4 +47,3 @@ return the content to display.
 ### `classes?: {[className: string]: string}`
 
 Override class names for the inner component
-
