@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import {withStyles} from 'material-ui/styles'
+import withStyles from 'material-ui/styles/withStyles'
 
 export type ExtractClasses = <T: Object>(styles: ((theme: any) => T) | T) => {[name: $Keys<T>]: string}
 export type Classes<Styles: Object | (theme: any) => Object> = $Call<ExtractClasses, Styles>
