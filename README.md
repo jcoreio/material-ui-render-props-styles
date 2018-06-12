@@ -13,6 +13,11 @@
 npm install --save material-ui-render-props-styles
 ```
 
+If you are using Webpack or another bundler that supports the `"module"` field
+in `package.json` and building for legacy browsers, make sure to add a build
+rule to transpile this package.
+
+
 ```js
 import createStyled from 'material-ui-render-props-styles'
 
