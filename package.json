@@ -2,7 +2,7 @@
   "name": "material-ui-render-props-styles",
   "version": "0.0.0-development",
   "description": "render props component wrapper for Material UI withStyles HoC",
-  "main": "lib/index.js",
+  "main": "index.js",
   "module": "es/index.js",
   "sideEffects": false,
   "scripts": {
