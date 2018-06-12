@@ -1,14 +1,19 @@
 {
   "presets": [
-    "stage-1",
     "flow",
     "react"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-class-properties",
+    "transform-export-extensions",
+    "transform-object-rest-spread"
   ],
   "env": {
     "test": {
       "presets": [
         ["env", {"targets": {"node": "current"}}],
-        "stage-1", "flow", "react"
+        "flow", "react"
       ],
       "plugins": [
         "transform-runtime"
@@ -17,9 +22,12 @@
     "coverage": {
       "presets": [
         ["env", {"targets": {"node": "current"}}],
-        "stage-1", "flow", "react"
+        "flow", "react"
       ],
-      "plugins": ["istanbul"]
+      "plugins": [
+        "transform-runtime",
+        "istanbul"
+      ]
     },
     "es5": {
       "presets": [
@@ -27,8 +35,7 @@
         "stage-1", "flow", "react"
       ],
       "plugins": [
-        "transform-runtime",
-        "transform-react-constant-elements"
+        "transform-runtime"
       ]
     },
     "production": {

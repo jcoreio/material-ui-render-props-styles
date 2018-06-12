@@ -71,6 +71,10 @@
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
     "babel-plugin-istanbul": "^4.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-constant-elements": "^6.9.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
@@ -88,7 +92,7 @@
     "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-react": "^7.0.0",
     "eslint-watch": "^3.0.0",
-    "flow-bin": "^0.73.0",
+    "flow-bin": "^0.74.0",
     "flow-copy-source": "^1.2.1",
     "flow-watch": "^1.1.0",
     "husky": "^0.14.3",
@@ -104,8 +108,8 @@
     "travis-deploy-once": "^4.3.1"
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0",
-    "@material-ui/core": "^1.0.0"
+    "@material-ui/core": "^1.0.0",
+    "react": "^16.3.0"
   },
   "dependencies": {
     "prop-types": "^15.0.0",
