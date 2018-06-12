@@ -4,7 +4,7 @@ import {describe, it} from 'mocha'
 import * as React from 'react'
 import {mount} from 'enzyme'
 import {expect} from 'chai'
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import createStyled from '../src'
 
@@ -108,4 +108,3 @@ describe('createStyled', () => {
     expect(root.className).to.match(/One-root-\d+ Two-root-\d+/)
   })
 })
-
