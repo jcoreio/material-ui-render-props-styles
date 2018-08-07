@@ -12,13 +12,13 @@ export type Props<Theme, Styles: Object> = {
   children: (props: {classes: Classes<Styles>, theme: Theme}) => React.Node,
 }
 
+type ExtractOptions = <O>((styles: any, options: O) => any) => O
+
+type Options = $Call<ExtractOptions, typeof withStyles>
+
 export default function createStyled<Theme, Styles: Object>(
   styles: ((theme: Theme) => Styles) | Styles,
-  options?: {
-    withTheme?: ?boolean,
-    name?: ?string,
-    flip?: ?boolean,
-  } = {},
+  options?: Options = {},
 ): React.ComponentType<Props<Theme, Styles>> {
   function Styled(props: {
     classes: Classes<Styles>,

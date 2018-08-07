@@ -8,7 +8,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import createStyled from '../src'
 
-const theme = createMuiTheme()
+const theme = createMuiTheme({})
 
 describe('createStyled', () => {
   it('injects classes', () => {

@@ -1,5 +1,5 @@
-// flow-typed signature: e3d42118a34a627d9c121880be7d1a52
-// flow-typed version: 120d43bb08/chai_v4.x.x/flow_>=v0.25.0
+// flow-typed signature: 0a4f337896b3e3d42509a6795859f441
+// flow-typed version: ae29f8b328/chai_v4.x.x/flow_>=v0.25.0
 
 declare module "chai" {
   declare type ExpectChain<T> = {
@@ -162,6 +162,11 @@ declare module "chai" {
 
     static isOk(object: mixed, message?: string): void;
     static isNotOk(object: mixed, message?: string): void;
+
+    static empty(object: mixed, message?: string): void;
+    static isEmpty(object: mixed, message?: string): void;
+    static notEmpty(object: mixed, message?: string): void;
+    static isNotEmpty(object: mixed, message?: string): void;
 
     static equal(actual: mixed, expected: mixed, message?: string): void;
     static notEqual(actual: mixed, expected: mixed, message?: string): void;
