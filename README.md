@@ -41,6 +41,15 @@ const PrimaryDiv = ({children}) => (
 )
 ```
 
+## Tips
+
+Calling `createStyled` within your `render` function will cause problems, because that will
+create a new component class on each render.  So make sure you call it outside of your `render` function.
+
+The `withTheme` option is only necessary if you want your `children` function to receive the `theme`.
+If your `styles` is a `theme => ({ })` function it will work even without the `withTheme` option.
+I have had this same confusion in the past about `withStyles`.
+
 ## Props
 
 ### `children: (options: {classes: Object, theme: any}) => React.Node`
