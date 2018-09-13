@@ -17,6 +17,8 @@ If you are using Webpack or another bundler that supports the `"module"` field
 in `package.json` and building for legacy browsers, make sure to add a build
 rule to transpile this package.
 
+If you are using `create-react-app`, you will need to import from `material-ui-render-props-styles/index`
+to prevent minification errors until https://github.com/facebook/create-react-app/pull/5005 lands (hopefully).
 
 ```js
 import createStyled from 'material-ui-render-props-styles'
