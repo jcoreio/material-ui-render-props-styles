@@ -1,9 +1,9 @@
 // @flow
 
-import {describe, it} from 'mocha'
+import { describe, it } from 'mocha'
 import * as React from 'react'
-import {mount} from 'enzyme'
-import {expect} from 'chai'
+import { mount } from 'enzyme'
+import { expect } from 'chai'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import createStyled from '../src'
@@ -24,8 +24,8 @@ describe('createStyled', () => {
 
     const StyledComponent = () => (
       <Styled>
-        {({classes}) => (
-          <div ref={c => root = c} className={classes.root} />
+        {({ classes }) => (
+          <div ref={c => (root = c)} className={classes.root} />
         )}
       </Styled>
     )
@@ -36,7 +36,9 @@ describe('createStyled', () => {
       </MuiThemeProvider>
     )
     if (!root) throw new Error('expected ref to <div> to be defined')
-    expect(getComputedStyle(root).backgroundColor).to.equal('rgb(121, 134, 203)')
+    expect(getComputedStyle(root).backgroundColor).to.equal(
+      'rgb(121, 134, 203)'
+    )
   })
   it('injects theme when given withStyles: true', () => {
     const styles = theme => ({
@@ -47,15 +49,15 @@ describe('createStyled', () => {
 
     let root: ?HTMLDivElement
 
-    const Styled = createStyled(styles, {withTheme: true})
+    const Styled = createStyled(styles, { withTheme: true })
 
     const StyledComponent = () => (
       <Styled>
-        {({classes, theme}) => (
+        {({ classes, theme }) => (
           <div
-            ref={c => root = c}
+            ref={c => (root = c)}
             className={classes.root}
-            style={{backgroundColor: theme.palette.primary.dark}}
+            style={{ backgroundColor: theme.palette.primary.dark }}
           />
         )}
       </Styled>
@@ -83,15 +85,15 @@ describe('createStyled', () => {
 
     let root: ?HTMLDivElement
 
-    const Styled1 = createStyled(styles1, {name: 'One'})
-    const Styled2 = createStyled(styles2, {name: 'Two'})
+    const Styled1 = createStyled(styles1, { name: 'One' })
+    const Styled2 = createStyled(styles2, { name: 'Two' })
 
     const StyledComponent = () => (
       <Styled2>
-        {({classes}) => (
+        {({ classes }) => (
           <Styled1 classes={classes}>
-            {({classes}) => (
-              <div ref={c => root = c} className={classes.root} />
+            {({ classes }) => (
+              <div ref={c => (root = c)} className={classes.root} />
             )}
           </Styled1>
         )}

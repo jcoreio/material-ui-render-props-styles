@@ -1,8 +1,12 @@
 [ignore]
-<PROJECT_ROOT>/lib/.*
+<PROJECT_ROOT>/[^/\\]+\.js$
+<PROJECT_ROOT>/[^/\\]+\.js\.flow$
 <PROJECT_ROOT>/es/.*
+<PROJECT_ROOT>/lib/.*
+<PROJECT_ROOT>/node_modules/.*/fbjs/.*
 <PROJECT_ROOT>/node_modules/fbjs/.*
 <PROJECT_ROOT>/node_modules/.*/test/.*
+<PROJECT_ROOT>/node_modules/.*/config-chain/.*
 
 [include]
 ./src
