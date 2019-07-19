@@ -44,6 +44,12 @@ const PrimaryDiv = ({children}) => (
 )
 ```
 
+## Flow types
+
+This package exports a `Classes` utility type that used to work with older versions of Flow.
+However, due to truly awful Flow bugs (which I spent hours trying to create a minimum repro case for, but failing)
+I'm unfortunately unable to offer useful Flow types at this time.  I have tried everything :cry:
+
 ## Tips
 
 Calling `createStyled` within your `render` function will cause problems, because that will
