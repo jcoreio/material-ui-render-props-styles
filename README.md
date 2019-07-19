@@ -24,18 +24,48 @@ to prevent minification errors until https://github.com/facebook/create-react-ap
 ```js
 import createStyled from 'material-ui-render-props-styles'
 
-const styles = theme => {
+const styles = theme => ({
   root: {
     backgroundColor: theme.palette.primary.light,
   },
-}
+})
 
 // accepts same options as withStyles
 const Styled = createStyled(styles)
 
-const PrimaryDiv = ({children}) => (
+const PrimaryDiv = ({ children }) => (
   <Styled>
-    {({classes}) => (
+    {({ classes }) => <div className={classes.root}>{children}</div>}
+  </Styled>
+)
+```
+
+## Flow types example
+
+This is slightly cumbersome since Flow 0.85, since you have to explicitly
+annotate the `createStyled` function type parameters. But it ensures that
+you'll get an error if you use `classes.foo` but `foo` isn't a key in your
+JSS styles.
+
+```js
+import createStyled, {
+  type Classes,
+  type ClassKeys,
+} from 'material-ui-render-props-styles'
+
+import { type Theme } from './theme'
+
+const styles = (theme: Theme) => ({
+  root: {
+    backgroundColor: theme.palette.primary.light,
+  },
+})
+
+const Styled = createStyled<Theme, ClassKeys<typeof styles>>(styles)
+
+const PrimaryDiv = ({ children }) => (
+  <Styled>
+    {({ classes }: { classes: Classes<typeof styles> }) => (
       <div className={classes.root}>
         {children}
       </div>

@@ -6,25 +6,29 @@ import { mount } from 'enzyme'
 import { expect } from 'chai'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
-import createStyled from '../src'
+import createStyled, { type Classes, type ClassKeys } from '../src'
 
 const theme = createMuiTheme({})
+type Theme = typeof theme
 
 describe('createStyled', () => {
   it('injects classes', () => {
-    const styles = theme => ({
+    const styles = (theme: Theme) => ({
       root: {
         backgroundColor: theme.palette.primary.light,
       },
     })
 
+    const classes: Classes<typeof styles> = { root: 'cls01' }
+    classes.root
+
     let root: ?HTMLDivElement
 
-    const Styled = createStyled(styles)
+    const Styled = createStyled<Theme, ClassKeys<typeof styles>>(styles)
 
     const StyledComponent = () => (
       <Styled>
-        {({ classes }) => (
+        {({ classes }: { classes: Classes<typeof styles> }) => (
           <div ref={c => (root = c)} className={classes.root} />
         )}
       </Styled>
@@ -41,7 +45,7 @@ describe('createStyled', () => {
     )
   })
   it('injects theme when given withStyles: true', () => {
-    const styles = theme => ({
+    const styles = (theme: Theme) => ({
       root: {
         backgroundColor: theme.palette.primary.light,
       },
@@ -49,14 +53,22 @@ describe('createStyled', () => {
 
     let root: ?HTMLDivElement
 
-    const Styled = createStyled(styles, { withTheme: true })
+    const Styled = createStyled<Theme, ClassKeys<typeof styles>>(styles, {
+      withTheme: true,
+    })
 
     const StyledComponent = () => (
       <Styled>
-        {({ classes, theme }) => (
+        {({
+          classes,
+          theme,
+        }: {
+          classes: Classes<typeof styles>,
+          theme: Theme,
+        }) => (
           <div
             ref={c => (root = c)}
-            className={classes.root}
+            className={classes.foo}
             style={{ backgroundColor: theme.palette.primary.dark }}
           />
         )}
@@ -85,8 +97,12 @@ describe('createStyled', () => {
 
     let root: ?HTMLDivElement
 
-    const Styled1 = createStyled(styles1, { name: 'One' })
-    const Styled2 = createStyled(styles2, { name: 'Two' })
+    const Styled1 = createStyled<Theme, ClassKeys<typeof styles1>>(styles1, {
+      name: 'One',
+    })
+    const Styled2 = createStyled<Theme, ClassKeys<typeof styles2>>(styles2, {
+      name: 'Two',
+    })
 
     const StyledComponent = () => (
       <Styled2>
